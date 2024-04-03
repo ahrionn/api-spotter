@@ -1,8 +1,8 @@
 --------- CRIAR ---------
 CREATE TABLE itens (
-    nome VARCHAR(100),
-    corredor INTEGER,
-    preco DECIMAL(10, 2)
+  nome VARCHAR(100),
+  corredor INTEGER,
+  preco DECIMAL(10, 2)
 );
 
 --------- INSERIR ---------
@@ -21,20 +21,20 @@ VALUES
   ('Kiwi', 1, 3.42),
   ('Cereja', 2, 4.26),
   ('Abacate', 3, 5.89),
-  ('Pera', 4, 2.33),
-  ('Limão Siciliano', 5, 1.87),
-  ('Manga', 1, 3.42),
-  ('Amora', 2, 4.26),
-  ('Caqui', 3, 5.89),
-  ('Figo', 4, 2.33),
-  ('Nectarina', 5, 1.87),
-  ('Physalis', 1, 3.42),
-  ('Romã', 2, 4.26),
-  ('Carambola', 3, 5.89),
-  ('Maracujá', 4, 2.33),
-  ('Ameixa', 5, 1.87),
-  ('Tangerina', 1, 3.42),
-  ('Uva-passa', 2, 4.26),
-  ('Jabuticaba', 3, 5.89),
-  ('Lichia', 4, 2.33),
-  ('Goiaba', 5, 1.87);
+  ('Fruta-do-Conde', 4, 2.87),
+  ('Limão Siciliano', 5, 1.47),
+  ('Manga', 1, 3.55),
+  ('Amora', 2, 4.62),
+  ('Caqui', 3, 5.98),
+  ('Figo', 4, 3.76),
+  ('Nectarina', 5, 2.61),
+  ('Physalis', 1, 4.99),
+  ('Romã', 2, 5.97),
+  ('Carambola', 3, 6.73),
+  ('Maracujá', 4, 4.95),
+  ('Ameixa', 5, 3.07),
+  ('Tangerina', 1, 5.11),
+  ('Uva-passa', 2, 6.23),
+  ('Jabuticaba', 3, 7.02),
+  ('Lichia', 4, 5.74),
+  ('Goiaba', 5, 7.15);
