@@ -2,7 +2,7 @@
   "name": "api-spotter",
   "version": "1.0.0",
   "description": "API for shelf-spotter",
-  "main": "index.js",
+  "main": "app.js",
   "engines": { 
     "node": "20.x" 
   },
