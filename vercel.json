@@ -9,7 +9,7 @@
 	"routes": [
 		{
 			"src": "/(.*)",
-			"dest": "/lista-de-compras"
+			"dest": "/api/listaEstoque"
 		}
 	]
 }
