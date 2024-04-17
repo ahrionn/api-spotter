@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
@@ -9,9 +11,16 @@ const PORT = process.env.PORT || 3000;
 app.use(bodyParser.json());
 app.use(cors());
 
-const sequelize = new Sequelize('postgres', 'postgres', '1234', {
-  host: 'localhost',
-  dialect: 'postgres',
+const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PWD, {
+  host: process.env.DB_HOST,
+  port: process.env.DB_PORT,
+  dialect: process.env.DIALECT,
+  dialectOptions: {
+    ssl: {
+      require: true,
+      rejectUnauthorized: false
+    }
+  }
 });
 
 app.get('/api/listaEstoque', async (req, res) => {
