@@ -17,7 +17,7 @@ module.exports =
     "database": process.env.DB_NAME,
     "host": process.env.DB_HOST,
     "port": process.env.DB_PORT,
-    "dialect": process.env.DIALECT,
+    "dialect": 'postgres',
     "ssl": true,
     "logging": true
   },
@@ -27,7 +27,7 @@ module.exports =
     "database": process.env.DB_NAME,
     "host": process.env.DB_HOST,
     "port": process.env.DB_PORT,
-    "dialect": process.env.DIALECT,
+    "dialect": 'postgres',
     "ssl": true,
     "logging": false
   }
