@@ -4,7 +4,6 @@ const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const { Sequelize } = require('sequelize');
-
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -25,6 +24,43 @@ const sequelize = new Sequelize({
           rejectUnauthorized: false
         }
       : null
+  }
+});
+
+const Item = sequelize.define('Item', 
+  {
+    nome: {
+      type: Sequelize.STRING,
+      allowNull: false,
+    },
+    corredor: {
+      type: Sequelize.INTEGER,
+      allowNull: false,
+    },
+    preco: {
+      type: Sequelize.FLOAT,
+      allowNull: false,
+    }
+  },
+  { 
+    tableName: 'itens',
+    timestamps: false
+  }
+);
+
+app.post('/api/addItem', async (req, res) => {
+  const { nome, corredor, price } = req.body;
+
+  try {
+    const novoProduto = await Item.create({
+      nome: nome,
+      corredor: corredor,
+      preco: price,
+    });
+    
+    res.status(201).json(novoProduto);
+  } catch (error) {
+    res.status(500).send('Erro ao inserir produto: ' + error.message);
   }
 });
 
