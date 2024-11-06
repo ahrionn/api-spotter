@@ -74,10 +74,14 @@ app.get('/api/listaEstoque', async (req, res) => {
   }
 });
 
-app.post('/api/listaCompras', (req, res) => {
-  const dadosRecebidos = req.body;
-  console.log(dadosRecebidos);
-  res.status(200).json({ message: 'Dados recebidos com sucesso!' });
+app.get('/api/buscaDadosItem', async (req, res) => {
+  try {
+    const itensEstoque = await sequelize.query('select * from "itens" where "nome" = ' + "'" + req.query.nome + "'");
+    res.status(200).json(itensEstoque[0]);
+  } catch (error) {
+    console.error('Erro ao buscar item', error);
+    res.status(500).json({ error: 'Erro interno do servidor' });
+  }
 });
 
 app.listen(PORT, () => {
