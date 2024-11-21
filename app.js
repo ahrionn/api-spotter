@@ -64,6 +64,25 @@ app.post('/api/addItem', async (req, res) => {
   }
 });
 
+app.put('/api/updateItem', async (req, res) => {
+  const { id, nome, corredor, price } = req.body;
+
+  try {
+    const [rowsUpdated] = await Item.update(
+      { nome, corredor, preco: price },
+      { where: { id } }
+    );
+
+    if (rowsUpdated > 0) {
+      res.status(200).json({ message: 'Produto atualizado com sucesso.' });
+    } else {
+      res.status(404).json({ error: 'Produto não encontrado.' });
+    }
+  } catch (error) {
+    res.status(500).json({ error: `Erro ao atualizar produto: ${error.message}` });
+  }
+});
+
 app.get('/api/listaEstoque', async (req, res) => {
   try {
     const itensEstoque = await sequelize.query('select * from "itens"');
