@@ -64,6 +64,24 @@ app.post('/api/addItem', async (req, res) => {
   }
 });
 
+app.delete('/api/deletaItem', async (req, res) => {
+  const { id } = req.query;
+
+  try {
+    const deletado = await Item.destroy({
+      where: { id: id },
+    });
+
+    if (deletado) {
+      res.status(200).json('Produto deletado com sucesso.');
+    } else {
+      res.status(404).json('Produto não encontrado.');
+    }
+  } catch (error) {
+    res.status(500).json('Erro ao deletar produto: ' + error.message);
+  }
+});
+
 app.put('/api/updateItem', async (req, res) => {
   const { id, nome, corredor, price } = req.body;
 
